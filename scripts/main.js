@@ -43,3 +43,19 @@ title.className += " princess-font"
 
 // element.remove()
 // Find and remove specific items
+
+//interact with ingredients
+var lis = document.querySelectorAll("li")
+for (let i = 0; i < lis.length; i++) {
+  var li = lis[i]
+  li.addEventListener("click", function(event) {
+    event.target.className += " selected"
+    event.target.style.outline = "1px solid orange"
+    let cart = document.getElementsByClassName("selected")
+    let itemString = "<br>"
+    for (let i = 0; i < cart.length; i++) {
+      itemString += cart[i].textContent + "<br>"
+    }
+    document.querySelector(".itemList").innerHTML = itemString
+  })
+}
