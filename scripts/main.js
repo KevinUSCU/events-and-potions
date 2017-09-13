@@ -3,6 +3,24 @@
 // document.getElementById
 // Find just the title
 let title = document.getElementById('title')
+// when clicking on element with class title, a message is displayed to the console
+var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "purple"]
+var colorIndex = 0
+var toggle = false
+var myTimer
+title.addEventListener("click", function() {
+  if (!toggle) { 
+    myTimer = setInterval(function() {
+      title.style.color = colors[colorIndex]
+      colorIndex++
+      if (colorIndex === colors.length) colorIndex = 0
+    }, 75) 
+    toggle = true
+  } else {
+    clearInterval(myTimer)
+    toggle = false
+  }
+})
 // Change the text of the title
 title.innerHTML = "Choose Your Magical Ingredients"
 // Change the style of the title
